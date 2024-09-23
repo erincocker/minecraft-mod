@@ -53,6 +53,10 @@ public class ExampleMod
     public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build())));
 
+
+    public static final RegistryObject<Item> PETER_MUG_ITEM = ITEMS.register("peter_mug", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+            .alwaysEdible().nutrition(1).saturationModifier(2f).build())));
+
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
@@ -101,8 +105,8 @@ public class ExampleMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) { event.accept(EXAMPLE_BLOCK_ITEM); }
+        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) { event.accept(PETER_MUG_ITEM); }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
