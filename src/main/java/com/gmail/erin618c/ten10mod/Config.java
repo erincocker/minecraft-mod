@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.gmail.erin618c.ten10mod;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
