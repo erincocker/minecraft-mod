@@ -1,5 +1,7 @@
 package com.gmail.erin618c.ten10mod.item;
 
+import com.gmail.erin618c.ten10mod.block.ModBlocks;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,6 +17,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Mugs.PETER_MUG)));
     public static final RegistryObject<Item> MONSTER_ITEM = ITEMS.register("monster",
             () -> new Item(new Item.Properties().food(Mugs.MONSTER)));
+
+    public static final RegistryObject<Item> RPS_BLOCK_ITEM = ITEMS.register("rps_block", () -> new BlockItem(ModBlocks.RPS_BLOCK.get(), new Item.Properties()));
 
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);

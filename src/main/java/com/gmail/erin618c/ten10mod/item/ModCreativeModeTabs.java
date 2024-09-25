@@ -8,8 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 
 import static com.gmail.erin618c.ten10mod.ExampleMod.MODID;
-import static com.gmail.erin618c.ten10mod.item.ModItems.MONSTER_ITEM;
-import static com.gmail.erin618c.ten10mod.item.ModItems.PETER_MUG_ITEM;
+import static com.gmail.erin618c.ten10mod.item.ModItems.*;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -19,6 +18,9 @@ public class ModCreativeModeTabs {
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(PETER_MUG_ITEM);
             event.accept(MONSTER_ITEM);
+        }
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(RPS_BLOCK_ITEM);
         }
     }
 
