@@ -13,6 +13,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Random;
+
 public class RPSBlock extends Block {
     public RPSBlock(Properties properties) {
         super(properties);
@@ -25,9 +27,25 @@ public class RPSBlock extends Block {
             @NotNull BlockHitResult blockHitResult) {
 
         if (itemStack.is(Items.COAL) || itemStack.is(Items.PAPER) || itemStack.is(Items.SHEARS)) {
-            popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_ITEM.get()));
+            int playerMove = RPSGame.itemToMove(itemStack);
+            Random random = new Random();
+            int machineMove = random.nextInt(3);
+
+            char playerWon = RPSGame.playGame(playerMove, machineMove);
+
+            itemStack.shrink(1);
+            if (playerWon == 'y') {
+                popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_ITEM.get()));
+            } else if (playerWon == 'n') {
+                popResource(level, blockPos, new ItemStack(Items.POISONOUS_POTATO));
+                //change this to evil peter mug
+            } else {
+                popResource(level, blockPos, new ItemStack(Items.DIRT));
+            }
+            return ItemInteractionResult.CONSUME;
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        //good practiced to instead go to the super method?
+        //good practice to instead go to the super method?
     }
 }
+
