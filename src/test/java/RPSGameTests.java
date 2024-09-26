@@ -1,6 +1,4 @@
-import com.gmail.erin618c.ten10mod.block.RPSBlock;
 import com.gmail.erin618c.ten10mod.block.RPSGame;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +10,6 @@ public class RPSGameTests {
         assertEquals('y', RPSGame.playGame(0, 2));
         assertEquals('y', RPSGame.playGame(1, 0));
         assertEquals('y', RPSGame.playGame(2, 1));
-
     }
 
     @Test

@@ -26,26 +26,41 @@ public class RPSBlock extends Block {
             @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand,
             @NotNull BlockHitResult blockHitResult) {
 
-        if (itemStack.is(Items.COAL) || itemStack.is(Items.PAPER) || itemStack.is(Items.SHEARS)) {
-            int playerMove = RPSGame.itemToMove(itemStack);
-            Random random = new Random();
-            int machineMove = random.nextInt(3);
-
-            char playerWon = RPSGame.playGame(playerMove, machineMove);
-
-            itemStack.shrink(1);
-            if (playerWon == 'y') {
-                popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_ITEM.get()));
-            } else if (playerWon == 'n') {
-                popResource(level, blockPos, new ItemStack(Items.POISONOUS_POTATO));
-                //change this to evil peter mug
-            } else {
-                popResource(level, blockPos, new ItemStack(Items.DIRT));
-            }
-            return ItemInteractionResult.CONSUME;
+        int playerMove;
+        if (itemStack.is(Items.COAL)) {
+            playerMove = 0;
+        } else if (itemStack.is(Items.PAPER)) {
+            playerMove = 1;
+        } else if (itemStack.is(Items.SHEARS)) {
+            playerMove = 2;
+        } else {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        //good practice to instead go to the super method?
+
+        int machineMove = new Random().nextInt(3);
+
+        switch (machineMove) {
+            case 0:
+                popResource(level, blockPos, new ItemStack(Items.COAL));
+                break;
+            case 1:
+                popResource(level, blockPos, new ItemStack(Items.PAPER));
+                break;
+            case 2:
+                popResource(level, blockPos, new ItemStack(Items.SHEARS));
+                break;
+        }
+
+        char playerWon = RPSGame.playGame(playerMove, machineMove);
+
+        itemStack.shrink(1);
+        if (playerWon == 'y') {
+            popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_ITEM.get()));
+        } else if (playerWon == 'n') {
+            popResource(level, blockPos, new ItemStack(Items.POISONOUS_POTATO));//change this to evil peter mug
+        }
+        return ItemInteractionResult.CONSUME;
     }
 }
+
 
