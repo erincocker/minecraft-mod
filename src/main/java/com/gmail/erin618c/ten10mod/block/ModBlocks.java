@@ -7,7 +7,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-
 import static com.gmail.erin618c.ten10mod.ExampleMod.MODID;
 
 public class ModBlocks {
@@ -18,5 +17,4 @@ public class ModBlocks {
     public static void register(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
     }
-
 }

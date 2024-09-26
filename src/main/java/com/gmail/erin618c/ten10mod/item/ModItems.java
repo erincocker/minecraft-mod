@@ -21,10 +21,10 @@ public class ModItems {
             () -> new PeterMugEvilItem(new Item.Properties()
                     .food(Mugs.PETER_MUG_EVIL)));
 
-    public static final RegistryObject<Item> RPS_BLOCK_ITEM = ITEMS.register("rps_block", () -> new BlockItem(ModBlocks.RPS_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> RPS_BLOCK_ITEM = ITEMS.register("rps_block",
+            () -> new RPSBlockItem(ModBlocks.RPS_BLOCK.get(), new Item.Properties()));
 
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
     }
-
 }

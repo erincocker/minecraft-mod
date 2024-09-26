@@ -7,4 +7,4 @@ public class RPSBlockItem extends BlockItem {
     public RPSBlockItem(Block block, Properties properties) {
         super(block, properties);
     }
-}
+} //currently unnecessary but might use this to add more properties later e.g. breakability

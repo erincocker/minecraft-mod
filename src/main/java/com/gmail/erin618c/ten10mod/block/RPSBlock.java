@@ -21,10 +21,10 @@ public class RPSBlock extends Block {
     }
 
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(
-            ItemStack itemStack, @NotNull BlockState blockState, @NotNull Level level,
-            @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand,
-            @NotNull BlockHitResult blockHitResult) {
+    protected @NotNull ItemInteractionResult useItemOn(ItemStack itemStack, @NotNull BlockState blockState,
+                                                       @NotNull Level level, @NotNull BlockPos blockPos,
+                                                       @NotNull Player player, @NotNull InteractionHand interactionHand,
+                                                       @NotNull BlockHitResult blockHitResult) {
 
         int playerMove;
         if (itemStack.is(Items.COAL)) {
@@ -38,7 +38,6 @@ public class RPSBlock extends Block {
         }
 
         int machineMove = new Random().nextInt(3);
-
         switch (machineMove) {
             case 0:
                 popResource(level, blockPos, new ItemStack(Items.COAL));
@@ -57,10 +56,8 @@ public class RPSBlock extends Block {
         if (playerWon == 'y') {
             popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_ITEM.get()));
         } else if (playerWon == 'n') {
-            popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_EVIL_ITEM.get()));//change this to evil peter mug
+            popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_EVIL_ITEM.get()));
         }
         return ItemInteractionResult.CONSUME;
     }
 }
-
-

@@ -18,5 +18,4 @@ public class PeterMugEvilItem extends Item {
         livingEntity.igniteForTicks(200);
         return itemStack.has(DataComponents.FOOD) ? livingEntity.eat(level, itemStack) : itemStack;
     }
-
 }
