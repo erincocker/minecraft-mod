@@ -17,6 +17,9 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(Mugs.PETER_MUG)));
     public static final RegistryObject<Item> MONSTER_ITEM = ITEMS.register("monster",
             () -> new Item(new Item.Properties().food(Mugs.MONSTER)));
+    public static final RegistryObject<Item> PETER_MUG_EVIL_ITEM = ITEMS.register("peter_mug_evil",
+            () -> new PeterMugEvilItem(new Item.Properties()
+                    .food(Mugs.PETER_MUG_EVIL)));
 
     public static final RegistryObject<Item> RPS_BLOCK_ITEM = ITEMS.register("rps_block", () -> new BlockItem(ModBlocks.RPS_BLOCK.get(), new Item.Properties()));
 

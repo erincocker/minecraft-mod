@@ -10,6 +10,9 @@ public class Mugs {
             .effect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 500, 0), 1.0F)
             .build();
 
+    public static final FoodProperties PETER_MUG_EVIL = mugBuilder()
+            .build();
+
     public static final FoodProperties MONSTER = mugBuilder()
             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 500, 0), 1.0F)
             .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 500, 0), 1.0F)

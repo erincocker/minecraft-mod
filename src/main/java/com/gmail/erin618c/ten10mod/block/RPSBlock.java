@@ -57,7 +57,7 @@ public class RPSBlock extends Block {
         if (playerWon == 'y') {
             popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_ITEM.get()));
         } else if (playerWon == 'n') {
-            popResource(level, blockPos, new ItemStack(Items.POISONOUS_POTATO));//change this to evil peter mug
+            popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_EVIL_ITEM.get()));//change this to evil peter mug
         }
         return ItemInteractionResult.CONSUME;
     }

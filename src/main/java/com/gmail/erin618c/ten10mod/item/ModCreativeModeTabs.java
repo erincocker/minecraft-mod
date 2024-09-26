@@ -18,6 +18,7 @@ public class ModCreativeModeTabs {
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(PETER_MUG_ITEM);
             event.accept(MONSTER_ITEM);
+            event.accept(PETER_MUG_EVIL_ITEM);
         }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(RPS_BLOCK_ITEM);
