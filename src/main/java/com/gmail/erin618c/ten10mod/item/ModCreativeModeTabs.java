@@ -19,6 +19,7 @@ public class ModCreativeModeTabs {
             event.accept(PETER_MUG_ITEM);
             event.accept(MONSTER_ITEM);
             event.accept(PETER_MUG_EVIL_ITEM);
+            event.accept(SHRIMP_ITEM);
         }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(RPS_BLOCK_ITEM);

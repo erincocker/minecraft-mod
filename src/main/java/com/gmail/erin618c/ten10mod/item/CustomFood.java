@@ -2,9 +2,10 @@ package com.gmail.erin618c.ten10mod.item;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
 
-public class Mugs {
+public class CustomFood {
     public static final FoodProperties PETER_MUG = mugBuilder()
             .effect(new MobEffectInstance(MobEffects.LUCK, 500, 0), 1.0F)
             .effect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 500, 0), 1.0F)
@@ -25,4 +26,11 @@ public class Mugs {
                 .nutrition(4)
                 .saturationModifier(0.4f);
     }
+
+    public static final FoodProperties SHRIMP = new FoodProperties
+            .Builder()
+            .nutrition(4)
+            .saturationModifier(0.4f)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 500, 0), 1.0F)
+            .build();
 }
