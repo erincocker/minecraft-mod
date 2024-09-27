@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": { "model":  "ten10mod:block/rps_block"}
+    "facing=east": {
+      "model": "ten10mod:block/rps_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "ten10mod:block/rps_block"
+    },
+    "facing=south": {
+      "model": "ten10mod:block/rps_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ten10mod:block/rps_block",
+      "y": 270
+    }
   }
 }

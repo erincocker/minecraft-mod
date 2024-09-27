@@ -1,6 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/orientable",
   "textures": {
-    "all": "ten10mod:block/rps_block"
+    "front": "ten10mod:block/rps_block_front",
+    "side": "ten10mod:block/rps_block",
+    "top": "ten10mod:block/rps_block"
   }
 }
