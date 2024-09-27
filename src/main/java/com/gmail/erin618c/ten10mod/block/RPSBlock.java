@@ -31,6 +31,16 @@ public class RPSBlock extends HorizontalDirectionalBlock {
         return CODEC;
     }
 
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
     protected RPSBlock(BlockBehaviour.Properties p_52591_) {
         super(p_52591_);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
@@ -56,13 +66,13 @@ public class RPSBlock extends HorizontalDirectionalBlock {
         int machineMove = new Random().nextInt(3);
         switch (machineMove) {
             case 0:
-                popResource(level, blockPos, new ItemStack(Items.COAL));
+                popResourceFromFace(level, blockPos, blockState.getValue(FACING), new ItemStack(Items.COAL));
                 break;
             case 1:
-                popResource(level, blockPos, new ItemStack(Items.PAPER));
+                popResourceFromFace(level, blockPos, blockState.getValue(FACING), new ItemStack(Items.PAPER));
                 break;
             case 2:
-                popResource(level, blockPos, new ItemStack(Items.SHEARS));
+                popResourceFromFace(level, blockPos, blockState.getValue(FACING), new ItemStack(Items.SHEARS));
                 break;
         }
 
@@ -70,20 +80,10 @@ public class RPSBlock extends HorizontalDirectionalBlock {
 
         itemStack.shrink(1);
         if (playerWon == 'y') {
-            popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_ITEM.get()));
+            popResourceFromFace(level, blockPos, blockState.getValue(FACING), new ItemStack(ModItems.PETER_MUG_ITEM.get()));
         } else if (playerWon == 'n') {
-            popResource(level, blockPos, new ItemStack(ModItems.PETER_MUG_EVIL_ITEM.get()));
+            popResourceFromFace(level, blockPos, blockState.getValue(FACING), new ItemStack(ModItems.PETER_MUG_EVIL_ITEM.get()));
         }
         return ItemInteractionResult.CONSUME;
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
     }
 }
